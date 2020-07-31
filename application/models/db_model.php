@@ -22,11 +22,21 @@
       function delete_data($id) {
         $this->db->where('id', $id);
         $this->db->delete('data');
+        $result['data'] = $this->db_model->display_data();
+        if($data->description == "") {
+          $query = $this->db->query("ALTER TABLE data AUTO_INCREMENT = 1");
+        }
       }
 
       function update($id, $description, $date) {
         $query = $this->db->query("update data set description='$description', date='$date' where id='$id'");
       }
+
+      function display_query_log() {
+        $query = $this->db->query("SELECT * FROM mysql.general_log");
+        return $query->result();
+      }
+
 
 }
 

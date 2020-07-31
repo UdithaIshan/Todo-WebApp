@@ -7,12 +7,11 @@
     <script src="https://use.fontawesome.com/f8cf1c89e6.js"></script>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <style>body{background-color:#292b2c;}</style>
 </head>
 <body>
-
-    <div class="full-width bg-dark">
-    <div class="container text-center mx-auto w-75 bg-dark">
-        <h1 class="py-4 bg-dark text-white rounded-bottom "><i class="fa fa-check-square-o" aria-hidden="true"></i> To Do List</h1>
+    <div class="container text-center mx-auto w-100 bg-dark">
+        <h1 class="py-4 bg-dark text-white rounded-bottom"><i class="fa fa-check-square-o" aria-hidden="true"></i> To Do List</h1>
         <div class="d-flex justify-content-center">
             <?php echo validation_errors();?>
             <?php echo form_open();?>
@@ -47,8 +46,8 @@
             </form>
         </div>
         
-        <div class="d-flex table-data">
-            <table class="table table-striped table-dark">
+        <div class="d-flex table-data table-responsive">
+            <table class="table  table-dark table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
@@ -65,13 +64,17 @@
                             echo "<td>".$row->description."</td>";
                             echo "<td>".$row->date."</td>";
                             echo "<td><button style=\"margin:0.0;padding:1.0;\" type=\"submit\" class=\"btn btn-danger\" onclick=\"window.location.replace('http://localhost/codeigniter/Page_update/deleteData/".$row->id."');\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></button></td>";
+                            echo "</tr>";
                         }
                     ?>
                 </tbody>
             </table>
         </div>
+        <div class="container">
+        <button style="margin:0.0;padding:1.0;" type="button" class="btn btn-info mb-3" onclick="window.location.replace('http://localhost/codeigniter/reportGen/generate');">Generate Report</button>
+        </div
     </div>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
